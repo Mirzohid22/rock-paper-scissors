@@ -120,7 +120,7 @@ class RPSGame {
   displayHelp() {
     this.generateCombinations();
     const table = [];
-    const headerRow = [chalk.bold("User🐧")];
+    const headerRow = [chalk.bold("🐧vs🤖")];
 
     // Create header row with colored text
     this.moves.forEach((move) => {
@@ -153,15 +153,17 @@ class RPSGame {
   formatTable(table) {
     let formattedTable = "";
 
-    table.forEach((row) => {
-      const reg = "| " + row.join(" | ") + " |\n";
-      formattedTable += reg + "+" + "-".repeat(reg.length - 2) + "+\n";
+    table.forEach((row, index) => {
+      if (index === 0) {
+        const reg = "|" + row.join(" | ") + " |\n";
+        formattedTable += reg + "+" + "-".repeat(row.length * 8 - 1) + "+\n";
+      } else {
+        const reg = "| " + row.join(" | ") + " |\n";
+        formattedTable += reg + "+" + "-".repeat(row.length * 8 - 1) + "+\n";
+      }
     });
     formattedTable =
-      "+" +
-      "-".repeat(formattedTable.indexOf("\n") - 1) +
-      "+\n" +
-      formattedTable;
+      "+" + "-".repeat(table[0].length * 8 - 1) + "+\n" + formattedTable;
     return formattedTable;
   }
 }
