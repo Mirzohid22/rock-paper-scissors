@@ -83,17 +83,17 @@ class RPSGame {
     this.losingMoves = losingMoves;
     let result;
     if (winningMoves.includes(computerMoveText)) {
-      result = chalk.green("You win!");
+      result = chalk.green("You win! 🙌🥂");
     } else if (losingMoves.includes(computerMoveText)) {
-      result = chalk.red("Computer wins!");
+      result = chalk.red("🤖Computer wins! 👻");
     } else {
-      result = chalk.yellow("It's a draw!");
+      result = chalk.yellow("It's a draw! 🗿");
     }
 
-    console.log(chalk.bold(`Your move: ${userMoveText}`));
-    console.log(chalk.bold(`Computer move: ${computerMoveText}`));
+    console.log(chalk.bold(`🐧 Your move: ${userMoveText}`));
+    console.log(chalk.bold(`🤖 Computer move: ${computerMoveText}`));
     console.log(result);
-    console.log(chalk.bold(`HMAC key: ${this.key}`));
+    console.log(chalk.bold(`🤫🤐🔐 HMAC key: ${this.key}`));
   }
 
   generateCombinations() {
@@ -115,15 +115,12 @@ class RPSGame {
       this.combinations[userMove].wins = winningMoves;
       this.combinations[userMove].loses = losingMoves;
     }
-
-    console.log(this.combinations);
   }
 
   displayHelp() {
     this.generateCombinations();
     const table = [];
-    const headerRow = [chalk.bold("User ")];
-    const headerDivider = [];
+    const headerRow = [chalk.bold("User🐧")];
 
     // Create header row with colored text
     this.moves.forEach((move) => {
